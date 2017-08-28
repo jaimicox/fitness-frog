@@ -44,9 +44,20 @@ namespace Treehouse.FitnessFrog.Controllers
             return View();
         }
 
-        [ActionName("Add"), HttpPost]
-        public ActionResult AddPost()
+        //[ActionName("Add"), HttpPost]
+        [HttpPost]
+        public ActionResult Add(string date, string activityId, string duration, string intensity, string exclude, string notes)
         {
+            // Este codigo extra la informacion del campo del formulario. requiere el atributo commentado.
+            // -> string date = Request.Form["Date"];
+
+            ViewBag.Date = date;
+            ViewBag.ActivityId = activityId;
+            ViewBag.Duration = duration;
+            ViewBag.Intensity = intensity;
+            ViewBag.Exclude = exclude;
+            ViewBag.Notes = notes;
+
             return View();
         }
 
