@@ -58,8 +58,11 @@ namespace Treehouse.FitnessFrog.Controllers
         {
             // Este codigo extra la informacion del campo del formulario. requiere el atributo commentado.
             // -> string date = Request.Form["Date"];
-            
+
             //ViewBag.Date = ModelState["Date"].Value.AttemptedValue;
+
+            // Mensaje de error global
+            //ModelState.AddModelError("", "This is a global message.");
 
             // If there aren't any duration field validation errors
             //Then make sure that the duration is greater than "0".
