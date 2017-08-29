@@ -41,21 +41,32 @@ namespace Treehouse.FitnessFrog.Controllers
 
         public ActionResult Add()
         {
-            return View();
+            var entry = new Entry()
+            {
+                Date = DateTime.Today
+            };
+
+            return View(entry);
         }
 
         //[ActionName("Add"), HttpPost]
         [HttpPost]
-        public ActionResult Add(DateTime? date, int? activityId, double? duration, Entry.IntensityLevel? intensity, bool? exclude, string notes)
+        public ActionResult Add(Entry entry)
         {
             // Este codigo extra la informacion del campo del formulario. requiere el atributo commentado.
             // -> string date = Request.Form["Date"];
             
             //ViewBag.Date = ModelState["Date"].Value.AttemptedValue;
 
+            if(ModelState.IsValid)
+            {
+                _entriesRepository.AddEntry(entry);
 
+                // TODO Display de Entries list page
 
-            return View();
+            }
+
+            return View(entry);
         }
 
         public ActionResult Edit(int? id)
